@@ -4,9 +4,36 @@ layout: default
 <div class="row">
  <div class="col s12 m8 offset-m2">
    <div class="card blue-grey lighten-5">
-     <div class="card-content white-text">
+     <div class="card-content">
        <span class="card-title">테스트 방법</span>
-       <p>자신의 입장에 해당하는 버튼을 클릭하여 테스트를 진행하면 됩니다.</p>
+       <p>자신의 입장에 해당하는 버튼을 클릭하시면 됩니다. 각 버튼은,</p>
+       <div class="row">
+         <div class="col s2 offset-s1">
+           <button class="btn-floating btn-large waves-effect waves-light red">
+           <i class="material-icons">thumb_up</i>
+           </button></div>
+         <div class="col s2">
+           <button class="btn-floating btn-large waves-effect waves-light pink">
+           </button></div>
+         <div class="col s2">
+           <button class="btn-floating btn-large waves-effect waves-light deep-purple">
+           </button></div>
+         <div class="col s2">
+           <button class="btn-floating btn-large waves-effect waves-light indigo">
+           </button></div>
+         <div class="col s2">
+           <button class="btn-floating btn-large waves-effect waves-light blue">
+             <i class="material-icons">thumb_down</i>
+           </button></div>
+       </div>
+       <div class="row">
+         <div class="col s2 offset-s1">매우 동의</div>
+         <div class="col s2">동의</div>
+         <div class="col s2">모름/반반</div>
+         <div class="col s2">반대</div>
+         <div class="col s2">매우 반대</div>
+       </div>
+       <p>를 나타냅니다.</p>
      </div>
      <div class="card-action row">
        <button class="blue darken-2 waves-effect waves-light btn s6 m4" onclick="location.href='{{ site.url }}/2017/12/05/quiz';">
