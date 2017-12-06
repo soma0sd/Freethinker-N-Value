@@ -16,8 +16,8 @@ function init_question() {
     document.getElementById("question-text").innerHTML = questions[qn].question;
     document.getElementById("question-number").innerHTML = "질문 " + (questions.length) + "개 중 " + (qn + 1) ;
     if (prev_answer == null) {
-        document.getElementById("back_button").style.display = 'none';
-        document.getElementById("back_button_off").style.display = 'block';
+        document.getElementById("#back_button").style.display = 'none';
+        document.getElementById("#back_button_off").style.display = 'block';
     } else {
         document.getElementById("back_button").style.display = 'block';
         document.getElementById("back_button_off").style.display = 'none';
@@ -55,7 +55,7 @@ function calc_score(score,max) {
     return (100*(max+score)/(2*max)).toFixed(1)
 }
 function results() {
-    location.href = `results.html`
+    location.href = `result.html`
         + `?e=${calc_score(val1,max_val1)}`
         + `&d=${calc_score(val2,max_val2)}`
         + `&g=${calc_score(val3,max_val3)}`
