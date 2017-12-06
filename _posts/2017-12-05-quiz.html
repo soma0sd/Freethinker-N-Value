@@ -3,7 +3,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link rel="shortcut icon" type="x-icon" href="icon.png">
-  <link rel="stylesheet" href= "./style.css">
+  <link rel="stylesheet" href= "{{ site.url }}/style.css">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -11,7 +11,7 @@
 </head>
 <body class="container">
   <script type="application/javascript"
-          src="questions.js">
+          src="{{ site.url }}/questions.js">
   </script>
   <h1 class="center-align">Freethink N-Values</h1>
   <hr>
@@ -28,7 +28,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   <!-- 테스트용 스크립트 -->
-  <!-- JavaScript for the test itself -->
   <script>
       var max_econ, max_dipl, max_govt, max_scty; // Max possible scores
       max_econ = max_dipl = max_govt = max_scty = 0;
