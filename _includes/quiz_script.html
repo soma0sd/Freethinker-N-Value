@@ -16,8 +16,8 @@ function init_question() {
     document.getElementById("question-text").innerHTML = questions[qn].question;
     document.getElementById("question-number").innerHTML = "질문 " + (questions.length) + "개 중 " + (qn + 1) ;
     if (prev_answer == null) {
-        document.getElementById("#back_button").style.display = 'none';
-        document.getElementById("#back_button_off").style.display = 'block';
+        document.getElementById("back_button").style.display = 'none';
+        document.getElementById("back_button_off").style.display = 'block';
     } else {
         document.getElementById("back_button").style.display = 'block';
         document.getElementById("back_button_off").style.display = 'none';
