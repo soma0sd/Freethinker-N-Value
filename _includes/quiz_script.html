@@ -55,7 +55,7 @@ function calc_score(score,max) {
     return (100*(max+score)/(2*max)).toFixed(1)
 }
 function results() {
-    location.href = `result.html`
+    location.href = `{{ site.url }}/result.html`
         + `?e=${calc_score(val1,max_val1)}`
         + `&d=${calc_score(val2,max_val2)}`
         + `&g=${calc_score(val3,max_val3)}`
