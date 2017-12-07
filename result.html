@@ -1,10 +1,17 @@
 ---
 layout: result
 ---
-<h2>결과</h2>
+<h3>결과</h3>
+<hr />
 
 <canvas id="result-box" class="blue lighten-5" width="1200" height="630"></canvas>
 
-<button class="btn waves-effect waves-light" onclick="location.href='{{ site.url }}';">
+<hr />
+<div class="row">
+<button class="btn waves-effect waves-light col  light-blue darken-4 disabled" onclick="location.href='{{ site.url }}';">
+   <i class="fa fa-facebook-official" aria-hidden="true">페이스북</i>공유
+</button>
+<button class="btn waves-effect waves-light col" onclick="location.href='{{ site.url }}';">
    <i class="material-icons right">send</i>다시하기
- </button>
+</button>
+</div>
