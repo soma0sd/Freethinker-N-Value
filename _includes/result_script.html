@@ -28,10 +28,10 @@ $("#result-box").ready(function() {
     ctx.fillStyle = '#ffffff';
     if(values[i] < 80){
       ctx.textAlign = 'left';
-      ctx.fillText(new String(values[i]) + "%", _x+_bi, _y+51);
+      ctx.fillText(new String(values[i]) + "%", (hFullX * 0.1) + _bi, _y+51);
     } else {
       ctx.textAlign = 'right';
-      ctx.fillText(new String(values[i]) + "%", _x+_bi, _y+51);
+      ctx.fillText(new String(values[i]) + "%", (hFullX * 0.1) + _bi, _y+51);
     }
   }
 });
