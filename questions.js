@@ -1,11 +1,11 @@
 questions = [
     {
         "question": "나는 만쥐작이 너무 좋다",
-        "effect": [10, 0, 0, 0]
+        "effect": [10, 5, 0, 0]
     },
     {
         "question": "뚜껑을 따는 일은 항상 즐겁다",
-        "effect": [10, 0, 0, 0]
+        "effect": [10, 0, 5, 0]
     },
     {
         "question": "나는 예쁘다",
