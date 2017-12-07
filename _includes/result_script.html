@@ -11,36 +11,40 @@ for(var i = 0; i < valuesN; i++){
   values[i] = getQueryVariable( String.fromCharCode(97 + i) );
 }
 
+var canv = $("#result-box")[0];
+var ctx = canv.getContext('2d');
+var img = new Image();
 $("#result-box").ready(function() {
-  var canv = $("#result-box")[0];
-  var ctx = canv.getContext('2d');
   var _x, _y, _bi, _bf, labels;
-  for(var i = 0; i < valuesN; i++){
-    _x = hFullX * 0.1;
-    _y = (vGridY * i) + (vGridY * 0.5);
-    _bi = (hFullX * 0.8 * values[i] / 100);
-    _bf = (hFullX * 0.8) - _bi;
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(_x, _y, (hFullX * 0.8), hBarheight);
-    ctx.fillStyle = colorMap[i];
-    ctx.fillRect(_x, _y, _bi, hBarheight);
-    ctx.font = '65px roboto';
-    ctx.fillStyle = '#ffffff';
-    if(values[i] < 80){
+  img.src = "values.jpg";
+  img.onload = function() {
+    for(var i = 0; i < valuesN; i++){
+      _x = hFullX * 0.1;
+      _y = (vGridY * i) + (vGridY * 0.5);
+      _bi = (hFullX * 0.8 * values[i] / 100);
+      _bf = (hFullX * 0.8) - _bi;
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(_x, _y, (hFullX * 0.8), hBarheight);
+      ctx.fillStyle = colorMap[i];
+      ctx.fillRect(_x, _y, _bi, hBarheight);
+      ctx.font = '65px roboto';
+      ctx.fillStyle = '#ffffff';
+      if(values[i] < 80){
+        ctx.textAlign = 'left';
+        ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
+      } else {
+        ctx.textAlign = 'right';
+        ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
+      }
+      labels = value_list[i];
+      ctx.font = 'bold 52px roboto';
+      ctx.fillStyle = '#000000';
       ctx.textAlign = 'left';
-      ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
-    } else {
+      ctx.fillText(labels[0], hFullX * 0.05, _y - (vGridY * 0.05));
       ctx.textAlign = 'right';
-      ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
+      ctx.fillText(labels[1], hFullX - (hFullX * 0.05), _y - (vGridY * 0.05));
     }
-    labels = value_list[i];
-    ctx.font = 'bold 52px roboto';
-    ctx.fillStyle = '#000000';
-    ctx.textAlign = 'left';
-    ctx.fillText(labels[0], hFullX * 0.05, _y - (vGridY * 0.05));
-    ctx.textAlign = 'right';
-    ctx.fillText(labels[1], hFullX - (hFullX * 0.05), _y - (vGridY * 0.05));
-  }
+  };
 });
 function getQueryVariable(variable){
   // 쿼리로부터 값 취득
@@ -53,93 +57,4 @@ function getQueryVariable(variable){
   return(NaN);
 }
 
-function dataURItoBlob(dataURI) {
-    var byteString = atob(dataURI.split(',')[1]);
-    var ab = new ArrayBuffer(byteString.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], {type: 'image/png'});
-}
-$('#shareFB').click(function () {
-    var data = $('#result-box')[0].toDataURL("image/png");
-    try {
-        blob = dataURItoBlob(data);
-    } catch (e) {
-        console.log(e);
-    }
-    FB.getLoginStatus(function (response) {
-        console.log(response);
-        if (response.status === "connected") {
-            postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, window.location.href);
-        } else if (response.status === "not_authorized") {
-            FB.login(function (response) {
-                postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, window.location.href);
-            }, {scope: "publish_actions"});
-        } else {
-            FB.login(function (response) {
-                postImageToFacebook(response.authResponse.accessToken, "Canvas to Facebook/Twitter", "image/png", blob, window.location.href);
-            }, {scope: "publish_actions"});
-        }
-    });
-});
-function postImageToFacebook(token, filename, mimeType, imageData, message) {
-    var fd = new FormData();
-    fd.append("access_token", token);
-    fd.append("source", imageData);
-    fd.append("no_story", true);
-
-    // Upload image to facebook without story(post to feed)
-    $.ajax({
-        url: "https://graph.facebook.com/me/photos?access_token=" + token,
-        type: "POST",
-        data: fd,
-        processData: false,
-        contentType: false,
-        cache: false,
-        success: function (data) {
-            console.log("success: ", data);
-
-            // Get image source url
-            FB.api(
-                "/" + data.id + "?fields=images",
-                function (response) {
-                    if (response && !response.error) {
-                        //console.log(response.images[0].source);
-
-                        // Create facebook post using image
-                        FB.api(
-                            "/me/feed",
-                            "POST",
-                            {
-                                "message": "",
-                                "picture": response.images[0].source,
-                                "link": window.location.href,
-                                "name": 'Look at the cute panda!',
-                                "description": message,
-                                "privacy": {
-                                    value: 'SELF'
-                                }
-                            },
-                            function (response) {
-                                if (response && !response.error) {
-                                    /* handle the result */
-                                    console.log("Posted story to facebook");
-                                    console.log(response);
-                                }
-                            }
-                        );
-                    }
-                }
-            );
-        },
-        error: function (shr, status, data) {
-            console.log("error " + data + " Status " + shr.status);
-        },
-        complete: function (data) {
-            //console.log('Post to facebook Complete');
-        }
-    });
-}
 </script>
