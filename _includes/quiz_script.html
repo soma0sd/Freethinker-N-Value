@@ -1,4 +1,5 @@
 <script>
+var valuesN = jekyll_var("valuesN") || 0;
 // questions에는 질문과 가중치가 들어있음
 // _config에 있는 values-N만큼의 변수를 계산
 var values = new Array();      // 현재값 (가치)
@@ -6,13 +7,12 @@ var max_values = new Array();  // 최대값 (가치)
 var Q_number = 0;              // 질문 수
 var pre_A = null;              // 이전 답안
 // 가치값 초기화
-for(var i=0; i < {{ site.valuesN }}; i++) {
+for(var i=0; i < valuesN; i++) {
   values[i] = max_values[i] = 0;
   for(var j=0; j < questions.length; j++){
     max_values[i] += Math.abs(questions[j].effect[i]);
   }
 }
-// 질문 초기화
 init_question();
 
 function init_question() {
@@ -26,7 +26,7 @@ function init_question() {
   }
 }
 function next_question(mult) {
-  for(var i=0; i < {{ site.valuesN }}; i++) {
+  for(var i=0; i < valuesN; i++) {
     values[i] += mult*questions[Q_number].effect[i];
   }
   Q_number++;
@@ -42,7 +42,7 @@ function prev_question() {
     return;
   }
   Q_number--;
-  for(var i=0; i < {{ site.valuesN }}; i++) {
+  for(var i=0; i < valuesN; i++) {
     values[i] -= prev_answer * questions[Q_number].effect[i];
   }
   prev_answer = null;
@@ -53,7 +53,7 @@ function calc_score(score, max) {
 }
 function results() {
   var href = `{{ site.url }}/result/`
-  for(var i=0; i < {{ site.valuesN }}; i++) {
+  for(var i=0; i < valuesN; i++) {
     href += String.fromCharCode(97 + i) +
             new String('=', calc_score(val1,max_val1));
   }
