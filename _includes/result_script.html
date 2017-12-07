@@ -14,7 +14,7 @@ for(var i = 0; i < valuesN; i++){
 $("#result-box").ready(function() {
   var canv = $("#result-box")[0];
   var ctx = canv.getContext('2d');
-  var _x, _y, _bi, _bf;
+  var _x, _y, _bi, _bf, labels;
   for(var i = 0; i < valuesN; i++){
     _x = hFullX * 0.1;
     _y = (vGridY * i) + (vGridY * 0.5);
@@ -33,6 +33,12 @@ $("#result-box").ready(function() {
       ctx.textAlign = 'right';
       ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
     }
+    labels = value_list[i];
+    ctx.font = 'bold 38px roboto';
+    ctx.textAlign = 'left';
+    ctx.fillText(labels[0], hFullX * 0.05, _y - (vGridY * 0.3));
+    ctx.textAlign = 'right';
+    ctx.fillText(labels[0], hFullX - (hFullX * 0.05), _y - (vGridY * 0.3));
   }
 });
 function getQueryVariable(variable){
