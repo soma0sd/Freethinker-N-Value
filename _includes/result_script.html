@@ -16,8 +16,8 @@ $("#result-box").ready(function() {
   var ctx = canv.getContext('2d');
   for(var i = 0; i < valuesN; i++){
     ctx.fillStyle = colorMap[i];
-    var _x = (vGridY * i) + (vGridY * 0.5);
-    var _y = hFullX * 0.1;
+    var _x = hFullX * 0.1;
+    var _y = (vGridY * i) + (vGridY * 0.5);
     ctx.fillRect(_x, _y, hFullX * 0.8, hBarheight);
   }
 });
