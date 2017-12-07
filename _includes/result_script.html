@@ -18,7 +18,7 @@ $("#result-box").ready(function() {
   for(var i = 0; i < valuesN; i++){
     _x = hFullX * 0.1;
     _y = (vGridY * i) + (vGridY * 0.5);
-    _bi = (hFullX * 0.8 * values[i] / 100).toFixed(1);
+    _bi = (hFullX * 0.8 * values[i] / 100);
     _bf = (hFullX * 0.8) - _bi;
     ctx.fillStyle = '#000000';
     ctx.fillRect(_x, _y, (hFullX * 0.8), hBarheight);
@@ -28,10 +28,10 @@ $("#result-box").ready(function() {
     ctx.fillStyle = '#ffffff';
     if(values[i] < 80){
       ctx.textAlign = 'left';
-      ctx.fillText(new String(values[i]) + "%", (hFullX * 0.1) + _bi, _y+51);
+      ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
     } else {
       ctx.textAlign = 'right';
-      ctx.fillText(new String(values[i]) + "%", (hFullX * 0.1) + _bi, _y+51);
+      ctx.fillText(new String(values[i]) + "%", _x + _bi, _y + 51);
     }
   }
 });
