@@ -2,11 +2,15 @@
 <html lang="ko">
 {% include head.html %}
   <body>
+    <script type="application/javascript"
+            src="{{ site.url }}/ideologies.js"></script>
+    <script type="application/javascript"
+            src="{{ site.url }}/questions.js"></script>
     <div class="container">
       {{ content }}
     </div>
-    {% include result_script.html %}
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    {% include result_script.html %}
   </body>
 </html>

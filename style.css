@@ -4,3 +4,13 @@
   font-size: 1.5em;
   height: 2.2em;
 }
+
+#result-box {
+  position: relative;
+  width: 100%;
+}
+#result-box:before {
+    content: "";
+    display: block;
+    padding-top: calc( 100% * (4/6) );
+}
