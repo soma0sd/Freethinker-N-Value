@@ -22,7 +22,7 @@ $("#result-box").ready(function() {
     ctx.fillRect(_x, _y, (hFullX * 0.8).toFixed(1), hBarheight);
     ctx = canv.getContext('2d');
     ctx.fillStyle = colorMap[i];
-    ctx.fillRect(_x, _y, (hFullX * values[i] * 0.008).toFixed(1), hBarheight);
+    ctx.fillRect(_x, _y, (hFullX * values[i] * 0.8).toFixed(1), hBarheight);
   }
 });
 function getQueryVariable(variable){
