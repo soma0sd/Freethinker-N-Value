@@ -20,10 +20,10 @@ $("#result-box").ready(function() {
     _y = (vGridY * i) + (vGridY * 0.5);
     _bi = (hFullX * 0.8 * values[i] / 100).toFixed(1);
     _bf = (hFullX * 0.8) - _bi;
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(_x+_bi, _y, (hFullX * 0.8), hBarheight);
     ctx.fillStyle = colorMap[i];
     ctx.fillRect(_x, _y, _bi, hBarheight);
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(_x+_bi, _y, _bf, hBarheight);
   }
 });
 function getQueryVariable(variable){
