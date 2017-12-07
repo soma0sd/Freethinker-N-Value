@@ -14,9 +14,10 @@ for(var i = 0; i < valuesN; i++){
 var canv = $("#result-box")[0];
 var ctx = canv.getContext('2d');
 var img = new Image();
+
 $("#result-box").ready(function() {
   var _x, _y, _bi, _bf, labels;
-  img.src = "values.jpg";
+  img.src = "img/values.jpg";
   img.onload = function() {
     for(var i = 0; i < valuesN; i++){
       _x = hFullX * 0.1;
@@ -45,6 +46,7 @@ $("#result-box").ready(function() {
       ctx.fillText(labels[1], hFullX - (hFullX * 0.05), _y - (vGridY * 0.05));
     }
   };
+  ctx.drawImage(img, 0, 0);
 });
 function getQueryVariable(variable){
   // 쿼리로부터 값 취득
