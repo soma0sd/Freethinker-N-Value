@@ -25,8 +25,8 @@ $("#result-box").ready(function() {
     ctx.fillStyle = colorMap[i];
     ctx.fillRect(_x, _y, _bi, hBarheight);
     ctx.font = '28px roboto';
-    ctx.fillStyle = '#e1f5fe';
-    ctx.fillText(values[i] + "%", _x + _bi, _y);
+    ctx.fillStyle = '#ff0000';
+    ctx.fillText(values[i] + "%", _x + _bi, _y+28);
   }
 });
 function getQueryVariable(variable){
