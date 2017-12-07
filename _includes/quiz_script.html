@@ -55,7 +55,7 @@ function results() {
   var href = `{{ site.url }}/result/`
   for(var i=0; i < valuesN; i++) {
     href += "?" + String.fromCharCode(97 + i) +
-            new String('=', calc_score(val1,max_val1));
+            new String('=', calc_score(values[i],max_values[i]));
   }
   location.href = href;
 }
