@@ -5,15 +5,7 @@ url: https://soma0sd.github.io/Freethinker-N-Values
 values-N: 2  # 측정할 가치의 수: questions.js에 충분한 Array가 있어야 함
 
 # 플러그인
-jekyll_var:
-  include:
-    - source
-    - public
-    - plugins
-    - title
-    - url
-  exclude:
-    - source
+jekyll_var: include/exclude
 
 # 빌드세팅
 markdown: kramdown
