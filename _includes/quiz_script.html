@@ -43,7 +43,7 @@ function prev_question() {
   }
   Q_number--;
   for(var i=0; i < valuesN; i++) {
-    values[i] -= prev_answer * questions[Q_number].effect[i];
+    values[i] -= pre_A * questions[Q_number].effect[i];
   }
   prev_answer = null;
   init_question();
