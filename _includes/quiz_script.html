@@ -1,64 +1,62 @@
 <script>
-var max_val1, max_val2, max_val3, max_val4; // Max possible scores
-max_val1 = max_val2 = max_val3 = max_val4 = 0;
-var val1, val2, val3, val4; // User's scores
-val1 = val2 = val3 = val4 = 0;
-var qn = 0; // Question number
-var prev_answer = null;
+// questions에는 질문과 가중치가 들어있음
+// _config에 있는 values-N만큼의 변수를 계산
+var values = new Array();      // 현재값 (가치)
+var max_values = new Array();  // 최대값 (가치)
+var Q_number = 0;              // 질문 수
+var pre_A = null;              // 이전 답안
+// 가치값 초기화
+for(var i=0; i < {{ site.valuesN }}; i++) {
+  values[i] = max_values[i] = 0;
+  for(var j=0; j < questions.length; j++){
+    max_values[i] += Math.abs(questions[j].effect[i]);
+  }
+}
+// 질문 초기화
 init_question();
-for (var i = 0; i < questions.length; i++) {
-    max_val1 += Math.abs(questions[i].effect.val1)
-    max_val2 += Math.abs(questions[i].effect.val2)
-    max_val3 += Math.abs(questions[i].effect.val3)
-    max_val4 += Math.abs(questions[i].effect.val4)
-}
+
 function init_question() {
-    document.getElementById("question-text").innerHTML = questions[qn].question;
-    document.getElementById("question-number").innerHTML = "질문 " + (questions.length) + "개 중 " + (qn + 1) ;
-    if (prev_answer == null) {
-        document.getElementById("back_button").style.display = 'none';
-        document.getElementById("back_button_off").style.display = 'block';
-    } else {
-        document.getElementById("back_button").style.display = 'block';
-        document.getElementById("back_button_off").style.display = 'none';
-    }
-
+  $("#question-text").html(questions[qn].question);
+  $("#question-number").html("질문 " + (Q_number + 1)
+                              + " /  " + (questions.length));
+  if (prev_answer == null) {
+    $("#back_button").addClass("disabled");
+  } else {
+    $("#back_button").removeClass("disabled");
+  }
 }
-
 function next_question(mult) {
-    val1 += mult*questions[qn].effect.val1
-    val2 += mult*questions[qn].effect.val2
-    val3 += mult*questions[qn].effect.val3
-    val4 += mult*questions[qn].effect.val4
-    qn++;
-    prev_answer = mult;
-    if (qn < questions.length) {
-        init_question();
-    } else {
-        results();
-    }
+  for(var i=0; i < {{ site.valuesN }}; i++) {
+    values[i] += mult*questions[Q_number].effect[i];
+  }
+  Q_number++;
+  pre_A = mult;
+  if (Q_number < questions.length) {
+    init_question();
+  } else {
+    results();
+  }
 }
 function prev_question() {
-    if (prev_answer == null) {
-        return;
-    }
-    qn--;
-    val1 -= prev_answer * questions[qn].effect.val1;
-    val2 -= prev_answer * questions[qn].effect.val2;
-    val3 -= prev_answer * questions[qn].effect.val3;
-    val4 -= prev_answer * questions[qn].effect.val4;
-    prev_answer = null;
-    init_question();
-
+  if (pre_A == null) {
+    return;
+  }
+  Q_number--;
+  for(var i=0; i < {{ site.valuesN }}; i++) {
+    values[i] -= prev_answer * questions[Q_number].effect[i];
+  }
+  prev_answer = null;
+  init_question();
 }
-function calc_score(score,max) {
-    return (100*(max+score)/(2*max)).toFixed(1)
+function calc_score(score, max) {
+  return (100*(max+score)/(2*max)).toFixed(1);
 }
 function results() {
-    location.href = `{{ site.url }}/result/`
-        + `?e=${calc_score(val1,max_val1)}`
-        + `&d=${calc_score(val2,max_val2)}`
-        + `&g=${calc_score(val3,max_val3)}`
-        + `&s=${calc_score(val4,max_val4)}`
+  var href = `{{ site.url }}/result/`
+  for(var i=0; i < {{ site.valuesN }}; i++) {
+    href += String.fromCharCode(97 + i) +
+            new String('=', calc_score(val1,max_val1));
+  }
+  location.href = href;
 }
 </script>

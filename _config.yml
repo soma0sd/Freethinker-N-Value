@@ -1,6 +1,9 @@
 title: Freethink Values
 url: https://soma0sd.github.io/Freethinker-N-Values
 
+# 문제 초기화
+values-N: 2  # 측정할 가치의 수: questions.js에 충분한 Array가 있어야 함
+
 # 빌드세팅
 markdown: kramdown
 permalink: pretty
