@@ -19,7 +19,7 @@ function init_question() {
   $("#question-text").html(questions[Q_number].question);
   $("#question-number").html("질문 " + (Q_number + 1)
                               + " /  " + (questions.length));
-  if (prev_answer == null) {
+  if (pre_A == null) {
     $("#back_button").addClass("disabled");
   } else {
     $("#back_button").removeClass("disabled");
