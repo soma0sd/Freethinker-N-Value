@@ -1,5 +1,5 @@
 <script>
-var valuesN = {{ site.valuesN | jsonify }};
+var valuesN = questions[0].effect.length;
 // questions에는 질문과 가중치가 들어있음
 // _config에 있는 values-N만큼의 변수를 계산
 var values = new Array();      // 현재값 (가치)
@@ -54,7 +54,7 @@ function calc_score(score, max) {
 function results() {
   var href = `{{ site.url }}/result/`
   for(var i=0; i < valuesN; i++) {
-    href += String.fromCharCode(97 + i) +
+    href += "?" + String.fromCharCode(97 + i) +
             new String('=', calc_score(val1,max_val1));
   }
   location.href = href;
