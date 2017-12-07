@@ -18,9 +18,9 @@ $("#result-box").ready(function() {
     var _x = hFullX * 0.1;
     var _y = (vGridY * i) + (vGridY * 0.5);
     ctx.fillStyle = '#000000';
-    ctx.fillRect(_x, _y, hFullX * 0.8, hBarheight);
+    //ctx.fillRect(_x, _y, hFullX * 0.8, hBarheight);
     ctx.fillStyle = colorMap[i];
-    ctx.fillRect(_x, _y, hFullX * values[i] * 0.08, hBarheight);
+    ctx.fillRect(_x, _y, hFullX * values[i] * 0.008, hBarheight);
   }
 });
 function getQueryVariable(variable){
