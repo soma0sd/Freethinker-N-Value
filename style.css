@@ -9,8 +9,3 @@
   position: relative;
   width: 100%;
 }
-#result-box:before {
-    content: "";
-    display: block;
-    padding-top: calc( 100% * (4/6) );
-}
