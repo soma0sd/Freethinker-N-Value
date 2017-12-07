@@ -16,7 +16,7 @@ for(var i=0; i < valuesN; i++) {
 init_question();
 
 function init_question() {
-  $("#question-text").html(questions[qn].question);
+  $("#question-text").html(questions[Q_number].question);
   $("#question-number").html("질문 " + (Q_number + 1)
                               + " /  " + (questions.length));
   if (prev_answer == null) {
