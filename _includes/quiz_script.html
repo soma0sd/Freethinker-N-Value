@@ -52,9 +52,9 @@ function calc_score(score, max) {
   return (100*(max+score)/(2*max)).toFixed(1);
 }
 function results() {
-  var href = `{{ site.url }}/result/`
-  for(var i=0; i < valuesN; i++) {
-    href += "?" + String.fromCharCode(97 + i)
+  var href = `{{ site.url }}/result/?a=${calc_score(values[i], max_values[i])}`
+  for(var i=1; i < valuesN; i++) {
+    href += "&" + String.fromCharCode(97 + i)
             + `=${calc_score(values[i], max_values[i])}`;
   }
   location.href = href;
