@@ -38,7 +38,7 @@ function init_question(){
   }
 }
 function results(){
-  var href = `{{ site.url }}/result/?a=${calc_score(values[0], values_max[0])}`;
+  var href = `../result/?a=${calc_score(values[0], values_max[0])}`;
   for(var i=1; i < values_number; i++) {
     href += "&" + String.fromCharCode(97 + i)
             + `=${calc_score(values[i], values_max[i])}`;
