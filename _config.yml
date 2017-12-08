@@ -1,11 +1,6 @@
 title: Freethink Values
 url: https://soma0sd.github.io/Freethinker-N-Values
 
-# 문제 초기화
-
-# 플러그인
-jekyll_var: include/exclude
-
 # 빌드세팅
 markdown: kramdown
 permalink: pretty
