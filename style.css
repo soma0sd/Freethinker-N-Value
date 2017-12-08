@@ -9,3 +9,7 @@
   position: relative;
   width: 100%;
 }
+
+.sel-btns {
+  padding: 0;
+}
