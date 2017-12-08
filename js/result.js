@@ -52,11 +52,10 @@ function canvasControl(){
     rty = bar_positions[i][1] + 55;
     if(values_ratio[i]){
       ctx.textAlign = 'left';
-      ctx.fillText(values_ratio[i].toFixed(1) + "%", rtx, _y + 51);
     } else {
       ctx.textAlign = 'right';
-      ctx.fillText(values_ratio[i].toFixed(1) + "%", rtx, _y + 51);
     }
+    ctx.fillText(new String(values_ratio[i].toFixed(1)) + "%", rtx, _y + 51);
   }
 }
 
