@@ -37,6 +37,9 @@ function init_question(){
     $("#back_button").removeClass("disabled");
   }
 }
+function calc_score(score, max) {
+  return (100*(max+score)/(2*max)).toFixed(1);
+}
 function results(){
   var href = `../result/?a=${calc_score(values[0], values_max[0])}`;
   for(var i=1; i < values_number; i++) {
@@ -44,9 +47,6 @@ function results(){
             + `=${calc_score(values[i], values_max[i])}`;
   }
   location.href = href;
-}
-function calc_score(score, max) {
-  return (100*(max+score)/(2*max)).toFixed(1);
 }
 
 // 외부 함수

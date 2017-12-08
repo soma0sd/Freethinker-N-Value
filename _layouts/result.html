@@ -2,15 +2,17 @@
 <html lang="ko">
 {% include head.html %}
   <body>
-    <script type="application/javascript"
-            src="{{ site.url }}/ideologies.js"></script>
-    <script type="application/javascript"
-            src="{{ site.url }}/questions.js"></script>
+    <script type="application/javascript" src="{{ site.url }}/data/questions.js"></script>
+    <script type="application/javascript" src="{{ site.url }}/data/result.js"></script>
     <div class="container">
+      <h3>{{ page.title }}</h3>
+      <hr />
+      <canvas id="result-box" class="blue lighten-5" width="1200" height="630"></canvas>
+      <hr />
       {{ content }}
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    {% include result_script.html %}
+    <script type="application/javascript" src="{{ site.url }}/js/result.js"></script>
   </body>
 </html>
