@@ -17,6 +17,11 @@ var bar_start     = canvas_width * 0.05;
 var bar_full      = canvas_width * 0.9;
 var bar_text_size = 0;
 
+canvasControl();
+$("#meta-og-image").attr("content", canvas.toDataURL());
+$("#meta-og-title").attr("content", "자유사상 가치관 테스트");
+$("#meta-og-url").attr("content", $(location).attr('href'));
+
 // 내부함수
 function getQueryVariables(){
   var _vars = $(location).attr('search').substring(1).split("&");
@@ -82,9 +87,6 @@ function canvasControl(){
 //외부함수
 $("#result-box").ready(function(){
   canvasControl();
-  $("#meta-og-image").attr("content", canvas.toDataURL());
-  $("#meta-og-title").attr("content", "자유사상 가치관 테스트");
-  $("#meta-og-url").attr("content", $(location).attr('href'));
 })
 $("#shareFB").click(function(){
   var openNewWindow = window.open("about:blank");
