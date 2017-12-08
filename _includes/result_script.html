@@ -2,7 +2,7 @@
 var colorMap = ['#f44336', '#e91e63', '#9c27b0', '#673ab7',
                 '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4',
                 '#009688', '#4caf50', '#8bc34a', '#cddc39'];
-var valuesN = questions[0].effect.length;
+var valuesN = value_list.length;
 var values = new Array();
 var hFullX = 1200;
 var vGridY = (600 / valuesN).toFixed(1);
@@ -38,9 +38,9 @@ $("#result-box").ready(function() {
     ctx.font = 'bold 52px roboto';
     ctx.fillStyle = '#000000';
     ctx.textAlign = 'left';
-    ctx.fillText(labels[0], hFullX * 0.05, _y - (vGridY * 0.05));
+    ctx.fillText(labels[0], hFullX * 0.1, _y - (vGridY * 0.05));
     ctx.textAlign = 'right';
-    ctx.fillText(labels[1], hFullX - (hFullX * 0.05), _y - (vGridY * 0.05));
+    ctx.fillText(labels[1], hFullX - (hFullX * 0.1), _y - (vGridY * 0.05));
   }
 });
 function getQueryVariable(variable){
