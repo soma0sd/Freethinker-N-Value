@@ -3,27 +3,6 @@
 {% include head-result.html %}
 <body>
 <div id="fb-root"></div>
-<script><script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '161236511051720',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v2.11'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script></script>
 <div class="container">
     <h3>{{ page.title }}</h3>
     <hr />
@@ -31,11 +10,10 @@
     <hr />
     {{ content }}
     </div>
-    <script src="http://connect.facebook.net/ko_KR/all.js"></script>
+    <script type="text/javascript" src="http://connect.facebook.net/ko_KR/all.js"></script>
     <script type="application/javascript" src="{{ site.url }}/data/result.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script type="application/javascript" src="{{ site.url }}/js/base64-binary.js"></script>
-    <script type="application/javascript" src="{{ site.url }}/js/result.js"></script>
+    <script type="text/javascript" src="{{ site.url }}/js/result.js"></script>
   </body>
 </html>
