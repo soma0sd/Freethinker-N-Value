@@ -50,12 +50,12 @@ function canvasControl(){
     ctx.fillStyle = '#ffffff';
     rtx = bar_positions[i][0] + bar_positions[i][2];
     rty = bar_positions[i][1] + 55;
-    if(values_ratio[i]){
+      if(values_ratio[i]){
       ctx.textAlign = 'left';
     } else {
       ctx.textAlign = 'right';
     }
-    ctx.fillText(new String(values_ratio[i].toFixed(1)) + "%", rtx, _y + 51);
+    ctx.fillText(new String(values_ratio[i]) + "%", rtx, _y + 51);
   }
 }
 
