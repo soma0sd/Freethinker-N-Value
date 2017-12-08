@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+{% include head.html %}
+<body>
+<script type="application/javascript" src="{{ site.url }}/data/questions.js"></script>
+<div class="row container">
+<!-- 컨테이너 시작 -->
+  <div class="card blue-grey lighten-5 col s12 m8 offset-m2">
+    <div class="card-content">
+      <span class="card-title"  id="question-number">{{ page.title }}</span>
+      <br />
+      {% include select_btn.html %}
+      <br />
+      <!-- 컨텐츠 위치 -->
+      {{ content }}
+    </div>
+    <div class="card-action row">
+      <button class="blue darken-2 waves-effect waves-light btn s6 m4" onclick="location.href='{{ site.url }}/quiz/';">
+        계속하기
+      </button>
+      <button class="pink darken-2 waves-effect waves-light btn s6 m4 offset-m2" onclick="location.href='{{ site.url }}';">
+        그만두기
+      </button>
+    </div>
+  </div>
+<!-- 컨테이너 끝 -->
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>
