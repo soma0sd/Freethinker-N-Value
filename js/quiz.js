@@ -10,8 +10,8 @@
 
 // 초기화
 var values_number = questions[0].effect.length;
-var values = new Array(values_number));
-var values_max = new Array(values_number));
+var values = new Array(values_number);
+var values_max = new Array(values_number);
 init_values();
 var question_index = 0;
 var previous_answer = null;
