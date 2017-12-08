@@ -17,9 +17,6 @@ var bar_start     = canvas_width * 0.05;
 var bar_full      = canvas_width * 0.9;
 var bar_text_size = 0;
 
-var authToken;
-
-init_FB();
 canvasControl();
 
 $("#meta-og-image").attr("content", canvas.toDataURL());
