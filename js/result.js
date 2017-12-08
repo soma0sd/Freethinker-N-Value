@@ -41,12 +41,11 @@ function canvasControl(){
   var back_args;
   var rtx, rty;
   for(var i=0; i<values_number; i++){
-    back_args = bar_positions[i];
-    back_args[2] = bar_full;
+    arg = bar_positions[i];
     ctx.fillStyle = '#000000';
-    ctx.fillRect.apply(this, back_args);
+    ctx.fillRect(arg[0], arg[1], bar_full, arg[3]);
     ctx.fillStyle = bar_colors[i];
-    ctx.fillRect.apply(this, bar_positions[i]);
+    ctx.fillRect(arg[0], arg[1], arg[2], arg[3]);
     ctx.font = '55px roboto';
     ctx.fillStyle = '#ffffff';
     rtx = bar_positions[i][0] + bar_positions[i][2];
@@ -62,4 +61,6 @@ function canvasControl(){
 }
 
 //외부함수
-$("#result-box").ready(function(){canvasControl();})
+$("#result-box").ready(function(){
+  canvasControl();
+})
