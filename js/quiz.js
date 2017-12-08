@@ -67,7 +67,7 @@ function prev_question(){
     return;
   }
   question_index--;
-  for(var i=0; i < valuesN; i++) {
+  for(var i=0; i < values_number; i++) {
     values[i] -= previous_answer * questions[question_index].effect[i];
   }
   revious_answer = null;

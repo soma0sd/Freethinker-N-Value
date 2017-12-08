@@ -22,7 +22,7 @@ function getQueryVariables(){
   var _vars = $(location).attr('search').substring(1).split("&");
   var _new = new Array()
   for(var i=0; i<_vars.length;i++){
-    _new[i] = _vars[i].split('=')[1];
+    _new[i] = 100 - _vars[i].split('=')[1];
   }
   return _new;
 }
@@ -82,4 +82,11 @@ function canvasControl(){
 //외부함수
 $("#result-box").ready(function(){
   canvasControl();
+  $("meta-og-image").attr("content", canvas.toDataURL());
+  $("meta-og-title").attr("content", "자유사상 가치관 테스트");
+  $("meta-og-url").attr("content", $(location).attr('href'));
 })
+$("#shareFB").click(function(){
+  location.href = "https://www.facebook.com/sharer/sharer.php?u="
+                  + $(location).attr('href');
+});
