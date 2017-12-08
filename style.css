@@ -9,7 +9,30 @@
   position: relative;
   width: 100%;
 }
+#sel-btn-wap{
+  display: table;
+  margin: 0;
+  padding: 0;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
+.sel-btn-div{
+  display: table-cell;
+}
+#sel-btn-wap:before {
+  display: table-cell;
+  content: '';
+}
 
+#sel-btn-wap:after {
+  display: table-cell;
+  content: '';
+}
 span.bold {
   font-weight: bold;
+}
+.btn-action{
+  font-size: 1.5em;
+  height: 2.2em;
 }
