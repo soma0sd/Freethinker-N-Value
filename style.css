@@ -14,8 +14,9 @@
   margin: 0;
   padding: 0;
   table-layout: fixed;
-  width: 100%;
+  width: calc(100% + 24px * 2);
   text-align: center;
+  margin: -24px;
 }
 .sel-btn-div{
   display: table-cell;
