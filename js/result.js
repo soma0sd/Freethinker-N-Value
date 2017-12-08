@@ -12,9 +12,10 @@ var canvas_width  = 1200;  // canvas.width()
 var ctx           = canvas.getContext('2d');
 
 var bar_colors    = result.barcolors;
-var bar_positions = getBarXYWH();
-var bar_full      = canvas_width * 0.8;
-var bar_text_size = 70;
+var bar_positions = null;
+var bar_start     = canvas_width * 0.05;
+var bar_full      = canvas_width * 0.9;
+var bar_text_size = 0;
 
 // 내부함수
 function getQueryVariables(){
@@ -28,10 +29,11 @@ function getQueryVariables(){
 function getBarXYWH(){
   var _grid = new Array();
   var _dy = canvas_height / values_number; // 바 위치
-  var _x  = canvas_width * 0.1;            // 바 x 시작점 (고정)
+  var _x  = bar_start;                     // 바 x 시작점 (고정)
   var _y  = _dy * 0.5;                     // 바 y 시작점 (증가)
   var _h  = _dy * 0.4;                     // 바 두께
   var _w  = 0;
+  bar_text_size = _dy * 0.3;
   for(var i=0; i<values_number; i++){
     _w = values_ratio[i] * bar_full / 100
     _grid[i] = [_x, _y, _w, _h];
@@ -41,17 +43,22 @@ function getBarXYWH(){
 }
 function canvasControl(){
   var rtx, rty;
+  bar_positions = getBarXYWH();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for(var i=0; i<values_number; i++){
     arg = bar_positions[i];
+    ctx.shadowColor = "#676767";
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
+    ctx.shadowBlur = 7;
     ctx.fillStyle = '#000000';
     ctx.fillRect(arg[0], arg[1], bar_full, arg[3]);
     ctx.fillStyle = bar_colors[i];
     ctx.fillRect(arg[0], arg[1], arg[2], arg[3]);
     ctx.font = "bold "+bar_text_size+"px roboto";
     ctx.fillStyle = '#ffffff';
-    rtx = bar_positions[i][0] + bar_positions[i][2];
-    rty = bar_positions[i][1] + bar_text_size;
+    rtx = arg[0] + arg[2];
+    rty = arg[1] + arg[3]*0.5 + bar_text_size*0.5;
       if(values_ratio[i] < 80){
       ctx.textAlign = 'left';
       rtx += bar_full*0.01;
@@ -60,6 +67,11 @@ function canvasControl(){
       rtx -= bar_full*0.01;
     }
     ctx.fillText(new String(values_ratio[i]) + "%", rtx, rty);
+    ctx.fillStyle = bar_colors[i];
+    ctx.textAlign = 'left';
+    ctx.shadowOffsetX = 1;
+    ctx.shadowOffsetY = 1;
+    ctx.fillText(values_label[i],arg[0],arg[1]-arg[3]*0.09);
   }
 }
 
