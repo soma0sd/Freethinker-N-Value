@@ -32,7 +32,7 @@ function getBarXYWH(){
   var _w  = 0;
   for(var i=0; i<values_number; i++){
     _w = values_ratio[i] * bar_full / 100
-    grid[i] = [_x, _y, _w, _h];
+    _grid[i] = [_x, _y, _w, _h];
     _y += dy;
   }
   return _grid
