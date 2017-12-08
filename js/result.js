@@ -87,6 +87,7 @@ $("#result-box").ready(function(){
   $("#meta-og-url").attr("content", $(location).attr('href'));
 })
 $("#shareFB").click(function(){
-  location.href = "https://www.facebook.com/sharer/sharer.php?u="
+  var openNewWindow = window.open("about:blank");
+  openNewWindow.location.href = "https://www.facebook.com/sharer/sharer.php?u="
                   + $(location).attr('href');
 });
