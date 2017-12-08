@@ -10,9 +10,11 @@ var canvas = $("#result-box")[0];
 var canvas_height =  600;  // canvas.height()
 var canvas_width  = 1200;  // canvas.width()
 var ctx           = canvas.getContext('2d');
+
 var bar_colors    = result.barcolors;
 var bar_positions = getBarXYWH();
 var bar_full      = canvas_width * 0.8;
+var bar_text_size = 70;
 
 // 내부함수
 function getQueryVariables(){
@@ -38,24 +40,26 @@ function getBarXYWH(){
   return _grid
 }
 function canvasControl(){
-  var back_args;
   var rtx, rty;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   for(var i=0; i<values_number; i++){
     arg = bar_positions[i];
     ctx.fillStyle = '#000000';
     ctx.fillRect(arg[0], arg[1], bar_full, arg[3]);
     ctx.fillStyle = bar_colors[i];
     ctx.fillRect(arg[0], arg[1], arg[2], arg[3]);
-    ctx.font = '55px roboto';
+    ctx.font = "bold "+bar_text_size+"px roboto";
     ctx.fillStyle = '#ffffff';
     rtx = bar_positions[i][0] + bar_positions[i][2];
-    rty = bar_positions[i][1] + 55;
-      if(values_ratio[i]){
+    rty = bar_positions[i][1] + bar_text_size;
+      if(values_ratio[i] < 80){
       ctx.textAlign = 'left';
+      rtx += bar_full*0.01;
     } else {
       ctx.textAlign = 'right';
+      rtx -= bar_full*0.01;
     }
-    ctx.fillText(new String(values_ratio[i]) + "%", rtx, rty + 51);
+    ctx.fillText(new String(values_ratio[i]) + "%", rtx, rty);
   }
 }
 
