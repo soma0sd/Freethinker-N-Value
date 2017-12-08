@@ -53,8 +53,12 @@ function canvasControl(){
     ctx.shadowBlur = 7;
     ctx.fillStyle = '#000000';
     ctx.fillRect(arg[0], arg[1], bar_full, arg[3]);
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
     ctx.fillStyle = bar_colors[i];
     ctx.fillRect(arg[0], arg[1], arg[2], arg[3]);
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
     ctx.font = "bold "+bar_text_size+"px roboto";
     ctx.fillStyle = '#ffffff';
     rtx = arg[0] + arg[2];
