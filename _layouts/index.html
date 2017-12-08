@@ -1,17 +1,18 @@
 <!doctype html>
 <html lang="ko">
-{% include head.html %}
-  <body>
-    <div class="container">
-      <h1 class="center-align">{{ page.title }}</h1>
-      <h5 class="center-align flow-text">{{ page.simple-info }}</h5>
-      <hr />
-      <button id="start-btn" class="waves-effect waves-light btn center-align" onclick="location.href='{{ site.url }}/start/';">
-        시작하기
-      </button>
-      {{ content }}
-    </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  </body>
+<head>{% include head.html %}</head>
+<body>
+  <div class="container">
+    <h1 class="center-align">{{ page.title }}</h1>
+    <h5 class="center-align flow-text">{{ page.simple-info }}</h5>
+    <hr />
+    <button id="start-btn" class="waves-effect waves-light btn center-align" onclick="location.href='{{ site.url }}/start/';">
+      시작하기
+    </button>
+    {{ content }}
+  </div>
+  <div class="container">{% include footer.html %}</div>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
 </html>

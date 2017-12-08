@@ -1,6 +1,9 @@
+# 전역변수
 title: Freethink Values
 url: https://soma0sd.github.io/Freethinker-N-Values
+author: soma0sd
+email: soma0sd@gmail.com
+years: 2017
 
 # 빌드세팅
-markdown: kramdown
 permalink: pretty

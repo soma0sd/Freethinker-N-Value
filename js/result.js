@@ -1,6 +1,6 @@
 /*
- * 결과 페이지의 캔버스를 제어하고,
- * 공유버튼을 컨트롤합니다.
+ * 결과 페이지의 캔버스를 제어합니다.
+ *
  */
 var values_label = result.values;
 var values_number = result.values.length;
@@ -88,18 +88,3 @@ function canvasControl(){
 $("#result-box").ready(function(){
   canvasControl();
 })
-$("#shareFB").click(function(){
-  msg = '';
-  for(var i=0; i<values_number;i++){
-    msg += values_label[i]+"의 영향을"+ (100-values_ratio[i]).toFixed(1) +"%";
-    if(i < values_number-1){msg += ", ";}
-  }
-  msg += "받고 있습니다."
-  FB.ui({
-  method: 'share',
-  display: 'popup',
-  href: $(location).attr('href'),
-  hashtag: '#Freethink_N-Values',
-  quote: msg,
-}, function(response){});
-});
