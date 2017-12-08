@@ -91,7 +91,7 @@ $("#result-box").ready(function(){
 $("#shareFB").click(function(){
   msg = '';
   for(var i=0; i<values_number;i++){
-    msg += values_label[i]+"의 영향을"+100-values_ratio[0]+"%";
+    msg += values_label[i]+"의 영향을"+ (100-values_ratio[i]) +"%";
     if(i < values_number-1){msg += ", ";}
   }
   msg += "받고 있습니다."
