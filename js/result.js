@@ -76,7 +76,7 @@ function canvasControl(){
       ctx.textAlign = 'right';
       rtx -= bar_full*0.01;
     }
-    ctx.fillText(new String(values_ratio[i]) + "%", rtx, rty);
+    ctx.fillText(new String(values_ratio[i].toFixed(1)) + "%", rtx, rty);
     ctx.fillStyle = bar_colors[i];
     ctx.textAlign = 'left';
     ctx.shadowOffsetX = 1;
@@ -91,7 +91,7 @@ $("#result-box").ready(function(){
 $("#shareFB").click(function(){
   msg = '';
   for(var i=0; i<values_number;i++){
-    msg += values_label[i]+"의 영향을"+ (100-values_ratio[i]) +"%";
+    msg += values_label[i]+"의 영향을"+ (100-values_ratio[i]).toFixed(1) +"%";
     if(i < values_number-1){msg += ", ";}
   }
   msg += "받고 있습니다."
@@ -102,8 +102,4 @@ $("#shareFB").click(function(){
   hashtag: '#Freethink_N-Values',
   quote: msg,
 }, function(response){});
-  // postCanvasToFacebook();
-  // var openNewWindow = window.open("about:blank");
-  // openNewWindow.location.href = "https://www.facebook.com/sharer/sharer.php?u="
-  //                 + $(location).attr('href');
 });
