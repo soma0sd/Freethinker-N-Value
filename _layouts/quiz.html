@@ -1,14 +1,31 @@
 <!doctype html>
 <html lang="ko">
 {% include head.html %}
-  <body>
-    <script type="application/javascript"
-            src="{{ site.url }}/questions.js"></script>
-    <div class="container">
-      {{ content }}
+<body>
+<script type="application/javascript" src="{{ site.url }}/data/questions.js"></script>
+<div class="row container">
+<!-- 컨테이너 시작 -->
+  <div class="card blue-grey lighten-5 col s12 m8 offset-m2">
+    <div class="card-content">
+      <span class="card-title"  id="question-number">불러오는 중...</span>
+      <p class="question" id="question-text"></p>
+      <br />
+      {% include select_btn.html %}
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    {% include quiz_script.html %}
-  </body>
+    <div class="card-action">
+      <button class="blue darken-2 waves-effect waves-light btn" id="back_button" onclick="prev_question()">
+        <i class="material-icons">arrow_back</i>이전 문항</a>
+      </button>
+    </div>
+  </div>
+<!-- 컨테이너 끝 -->
+</div>
+<div class="container">
+<!-- 컨텐츠 위치 -->
+{{ content }}
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+{% include quiz_script.html %}
+</body>
 </html>
