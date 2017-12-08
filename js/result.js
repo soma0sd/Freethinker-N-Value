@@ -82,9 +82,9 @@ function canvasControl(){
 //외부함수
 $("#result-box").ready(function(){
   canvasControl();
-  $("meta-og-image").attr("content", canvas.toDataURL());
-  $("meta-og-title").attr("content", "자유사상 가치관 테스트");
-  $("meta-og-url").attr("content", $(location).attr('href'));
+  $("#meta-og-image").attr("content", canvas.toDataURL());
+  $("#meta-og-title").attr("content", "자유사상 가치관 테스트");
+  $("#meta-og-url").attr("content", $(location).attr('href'));
 })
 $("#shareFB").click(function(){
   location.href = "https://www.facebook.com/sharer/sharer.php?u="
