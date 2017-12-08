@@ -87,39 +87,7 @@ function canvasControl(){
     ctx.fillText(values_label[i],arg[0],arg[1]-arg[3]*0.09);
   }
 }
-function init_FB(){
-  // window.fbAsyncInit = function() {
-  //   FB.init({
-  //     appId            : '161236511051720',
-  //     autoLogAppEvents : true,
-  //     xfbml            : true,
-  //     version          : 'v2.11'
-  //   });
-  // };
-  // if ( XMLHttpRequest.prototype.sendAsBinary === undefined ) {
-  //     XMLHttpRequest.prototype.sendAsBinary = function(string) {
-  //         var bytes = Array.prototype.map.call(string, function(c) {
-  //             return c.charCodeAt(0) & 0xff;
-  //         });
-  //         this.send(new Uint8Array(bytes).buffer);
-  //     };
-  // };
-  // (function(d, s, id) {
-  //   var js, fjs = d.getElementsByTagName(s)[0];
-  //   if (d.getElementById(id)) return;
-  //   js = d.createElement(s); js.id = id;
-  //   js.src = "//connect.facebook.net/en_US/all.js";
-  //   fjs.parentNode.insertBefore(js, fjs);
-  // }(document, 'script', 'facebook-jssdk'));
-  // window.fbAsyncInit = function() {
-  //     FB.init({
-  //       appId  : "404477149649756",
-  //       status : true,
-  //       cookie : true,
-  //       xfbml  : true  // parse XFBML
-  //     });
-  // };
-}
+function init_FB(){}
 function postImageToFacebook( authToken, filename, mimeType, imageData, message ){
     // this is the multipart/form-data boundary we'll use
     var boundary = '----ThisIsTheBoundary1234567890';
@@ -169,7 +137,20 @@ $("#result-box").ready(function(){
   canvasControl();
 })
 $("#shareFB").click(function(){
-  postCanvasToFacebook();
+  msg = '';
+  for(var i=0; i<values_number;i++){
+    msg += values_label[i]+"의 영향을"+100-values_ratio[0]+"%";
+    if(i < values_number-1){msg += ", ";}
+  }
+  msg += "받고 있습니다."
+  FB.ui({
+  method: 'share',
+  display: 'popup',
+  href: $(location).attr('href'),
+  hashtag: '#Freethink_N-Values',
+  quote: msg,
+}, function(response){});
+  // postCanvasToFacebook();
   // var openNewWindow = window.open("about:blank");
   // openNewWindow.location.href = "https://www.facebook.com/sharer/sharer.php?u="
   //                 + $(location).attr('href');
