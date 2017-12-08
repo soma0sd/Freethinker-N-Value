@@ -18,7 +18,7 @@ var bar_full      = canvas_width * 0.8;
 function getQueryVariables(){
   var _vars = $(location).attr('search').substring(1).split("&");
   var _new = new Array()
-  for(var i=0; i<_var.length;i++){
+  for(var i=0; i<_vars.length;i++){
     _new[i] = _vars[i].split('=')[1];
   }
   return _new;
