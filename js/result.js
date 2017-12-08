@@ -55,7 +55,7 @@ function canvasControl(){
     } else {
       ctx.textAlign = 'right';
     }
-    ctx.fillText(new String(values_ratio[i]) + "%", rtx, _y + 51);
+    ctx.fillText(new String(values_ratio[i]) + "%", rtx, rty + 51);
   }
 }
 
