@@ -2,29 +2,29 @@
 <html lang="ko">
 <head>
   {% include head.html %}
-  <script>
-  var fb_app_id  = String($("#fb-app-id").attr('content'));
-  var fb_sdk_ver = String($("#fb-sdk-ver").attr('content'));
-  window.fbAsyncInit = function() {
-      FB.init({
-        appId            : fb-app-id,
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : fb_sdk_ver
-      });
-    };
-
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
 </head>
 <body>
 <div id="fb-root"></div>
+<script>
+var fb_app_id  = String($("#fb-app-id").attr('content'));
+var fb_sdk_ver = String($("#fb-sdk-ver").attr('content'));
+window.fbAsyncInit = function() {
+    FB.init({
+      appId            : "161236511051720",
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : "v2.11",
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <div class="container">
     <h3>{{ page.title }}</h3>
     <hr />
