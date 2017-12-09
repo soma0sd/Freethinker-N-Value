@@ -6,8 +6,8 @@
 <body>
 <div id="fb-root"></div>
 <script>
-var fb_app_id  = new String($("#fb-app-id").attr('content'));
-var fb_sdk_ver = new String($("#fb-sdk-ver").attr('content'));
+var fb_app_id  = String($("#fb-app-id").attr('content'));
+var fb_sdk_ver = String($("#fb-sdk-ver").attr('content'));
 window.fbAsyncInit = function() {
     FB.init({
       appId            : fb-app-id, // 앱 ID
