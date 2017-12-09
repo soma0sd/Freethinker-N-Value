@@ -4,11 +4,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <link rel="shortcut icon" type="x-icon" href="{{ site.url }}/icon.png">
 <link rel="stylesheet" href= "{{ site.url }}/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta id="meta-og-title" property="og:title" content="{{ site.title }}" />
 <meta id="meta-og-image" property="og:image" content="{{ site.url }}/icon.png" />
 <meta id="meta-og-url" property="og:url" content="{{ site.url }}" />
 <meta property="og:type" content="website" />
-<meta property="fb:app_id" content="161236511051720" />
+<meta id="fb-app-id" property="fb:app_id" content={{ site.facebook-app-id }} />
+<meta id="fb-sdk-ver" property="fb:sdk_ver" content={{ site.facebook-sdk-version }} />
 <meta property="og:description"   content="" />

@@ -6,12 +6,14 @@
 <body>
 <div id="fb-root"></div>
 <script>
+var fb_app_id  = $("#fb-app-id").attr('content');
+var fb_sdk_ver = $("#fb-sdk-ver").attr('content');
 window.fbAsyncInit = function() {
     FB.init({
-      appId            : '161236511051720', // 앱 ID
+      appId            : fb-app-id, // 앱 ID
       autoLogAppEvents : true,
       xfbml            : true,
-      version          : 'v2.11'            // SDK 버전
+      version          : fb_sdk_ver // SDK 버전
     });
   };
 
@@ -29,7 +31,6 @@ window.fbAsyncInit = function() {
     <hr />
     {{ content }}
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="application/javascript" src="{{ site.url }}/data/result.js"></script>
     <script type="text/javascript" src="{{ site.url }}/js/result.js"></script>
