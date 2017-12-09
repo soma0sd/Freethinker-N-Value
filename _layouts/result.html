@@ -6,14 +6,12 @@
 <body>
 <div id="fb-root"></div>
 <script>
-var fb_app_id  = String($("#fb-app-id").attr('content'));
-var fb_sdk_ver = String($("#fb-sdk-ver").attr('content'));
 window.fbAsyncInit = function() {
     FB.init({
-      appId            : "161236511051720",
+      appId            : "{{ site.facebook-app-id }}",
       autoLogAppEvents : true,
       xfbml            : true,
-      version          : "v2.11",
+      version          : "{{ site.facebook-sdk-version }}",
     });
   };
 
