@@ -5,25 +5,6 @@
  *
  */
 
-function init_facebook(){
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            : '161236511051720', // 앱 ID
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.11'            // SDK 버전
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-}
-
 $("#shareFB").click(function(){
   msg = '';
   for(var i=0; i<values_number;i++){
